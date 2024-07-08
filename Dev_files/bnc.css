@@ -1,0 +1,53 @@
+* {
+ margin :0%;
+ padding: 0%;
+ box-sizing: border-box;
+font-family: 'Gilroy';
+}html,
+body{
+    height: 100%;
+    width: 100%;
+}
+.box {
+    display: flex;
+    justify-content: baseline;
+    height: 50vh;
+    width: 100vw;
+    background-color: rgb(27, 3, 3);
+    position: relative;
+  }
+  
+  .circle {
+    
+    height: 75px;
+    width: 75px;
+    background-color: rgb(187, 7, 7);
+  position: absolute;
+  animation: bounce 3s  linear infinite, bouncey 1s ease-out infinite alternate, rotate 1s infinite linear; ;
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg); /* Rotate a full circle */
+    }
+  }
+  @keyframes bounce {
+   from{
+    left: 0;
+   }
+   to{
+    left: 100%;
+   }
+  }
+  @keyframes bouncey {
+    from{
+        bottom: 0;
+    }
+    to{
+        bottom:100%;
+    }
+  }
+  
+ 
