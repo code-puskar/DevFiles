@@ -1,0 +1,64 @@
+* {
+ margin :0%;
+ padding: 0%;
+font-family: 'Poppins';
+}html,
+body{
+    height: 100%;
+    width: 100%;
+}
+.main{
+    background-position: center center;
+    background-image: url("asset/IN-en-20240701-POP_SIGNUP_TWO_WEEKS-perspective_WEB_b00eeb83-a7e8-4b5b-8ff7-86ed92c51caf_small.jpg");
+    height: 100vh;
+}
+.main .box{
+    height: 100vh;
+    width: 100%;
+    opacity: 0.44;
+    background-color: rgb(0, 0, 0);
+}
+.main nav{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.466);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+     
+    gap: 360px;
+}
+.netflix{
+    margin-top: 2.5%;
+}
+.flex{
+    display: flex;
+    gap: 30px;
+  
+}
+.flex .eng{
+    
+    background-color: rgba(23,23,23,0.2);
+    color: white;
+    height: 35px;
+    width: 130px;
+    border: 0.1px solid rgba(255, 255, 255, 0.507);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.flex .eng .lang{
+    margin-right: 4px;
+    
+}
+.flex .sign{
+    font-weight: 700;
+    background-color: rgb(221, 9, 9);
+    color: white;
+    height: 35px;
+    width: 80px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 4px;
+
+}
