@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japathon Tracker</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/objectivehtml/FlipClock/master/compiled/flipclock.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('https://grandgames.net/puzzle/f1200/vrindavan.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        .flip-clock-wrapper .flip-clock-meridium a,
+        .flip-clock-wrapper .flip-clock-meridium div,
+        .flip-clock-wrapper .flip-clock-am-pm {
+            font-size: 30px !important;
+            font-weight: bold !important;
+        }
+        
+        .flip-clock-wrapper ul li a div div.inn,
+        .flip-clock-wrapper ul li a div div.inn:before {
+            font-size: 60px !important;
+            font-weight: bold !important;
+        }
+        
+        .flip-clock-wrapper .flip-clock-label {
+            font-size: 30px !important;
+            font-weight: bold !important;
+        }
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #preloader img {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        #preloader h1 {
+            font-size: 4rem;
+            color: white;
+            margin-top: 20px;
+        }
+
+        #loader {
+            width: 100px;
+            height: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        #loader .bar {
+            width: 0;
+            height: 100%;
+            background-color: #3498db;
+            animation: load 2s infinite;
+        }
+
+        @keyframes load {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+
+        .cont {
+            display: flex;
+            flex-direction: column;
+            
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            z-index:1;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(39, 39, 39, 0.409);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .headr {
+            display: flex;
+            z-index:2;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 15%;
+        }
+
+        .headr h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .progress-section {
+            z-index:2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .progress-section h1{
+            font-size:60px;
+        }
+        .progress-section h3 {
+            font-size: 2rem;
+        }
+
+        .video-section {
+            z-index:2;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            gap: 10px;
+            padding: 10px;
+            width: 100%;
+            scroll-snap-type: x mandatory;
+        }
+
+        .video-section iframe {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+
+        .flip-clock-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .flip-clock-container .clock {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        button {
+  padding: 10px;
+  background-color: rgba(0, 123, 255, 0.747);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0b23f7;
+}
+
+a {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+      
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input[type="email"], input[type="password"], button {
+  padding: 25px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.956);
+  box-sizing: border-box;
+  height: 50px;
+  
+}
+
+       
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .headr h1 {
+                font-size: 2rem;
+            }
+
+            .progress-section h2, .progress-section h3 {
+                font-size: 1rem;
+            }
+
+            .update-section input, .update-section button {
+                font-size: 1rem;
+            }
+            input[type="email"], input[type="password"], button {
+      padding: 8px;
+      font-size: 14px;
+  }
+            .flip-clock-wrapper {
+                margin-top: 10px;
+                zoom: 0.7;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .headr h1 {
+                font-size: 1.5rem;
+            }
+
+            .progress-section h2, .progress-section h3 {
+                font-size: 0.875rem;
+            }
+
+            .update-section input, .update-section button {
+                font-size: 0.875rem;
+            }
+
+            .flip-clock-wrapper {
+
+                margin-top: 10px;
+                zoom: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="assets/folk logo.png" alt="FOLK LIFE VADODARA Logo">
+        <h1>FOLK LIFE VADODARA</h1>
+        <div id="loader" style="width:300px;">
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <div class="cont">
+        <div class="container" style="display: flex; justify-content: center; flex-direction: column;">
+            <div class="headr">
+                <h1>JAPATHON TRACKER</h1>
+            </div>
+            
+            <div class="progress-section" style="font-size: 60px; box-shadow:  0 0 15px rgba(0, 0, 0, 0.739); width:88%; border-radius:15px;">
+                <h1>Seva Target: 25,108 Rounds</h1>
+                <h3>Seva Accomplished Till Now: <?php echo $accomplished_rounds; ?></h3>
+                <h3>Balanced Target: <?php echo $remaining_rounds; ?></h3>
+                <h3>Today's Total Chanting: <?php echo $todays_rounds; ?></h3>
+            </div>
+            <div class="flip-clock-container" style="display: flex; justify-content: center; align-items: center; margin-top: 40px;">
+                <div class="clock" style="margin:2em;"></div>
+            </div>
+            <div class="video-section" style="margin-top: 40px; height: 555px;">
+                <iframe src="https://www.youtube.com/embed/Kd7Cm0vkRVA" frameborder="10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/4rWQGEtEV8w" frameborder="20" allow="accelerometer; autoplay; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          
+          
+            
+           <div  style="font-size:25px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.884); z-index:2; width:88%; display:flex: justify-content:center;" class="update-section">
+                <form id="loginForm" action="login.php" method="post">
+                    <input style="font-size:20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);"type="email" name="email" placeholder="Email" required>
+                    <input style="font-size:20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);" type="password" name="password" placeholder="Password" required>
+                    <button style="font-size:25px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.384); width:68%;" type="submit">Login</button>
+                    <button style="font-size:25px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.384); text-style:none; width:68%;" type="submit">
+                <a style="font-weight:700; color:white; font-size:20px;text-style:none; margin-bottom:4px;" href="register.html">Don't have an account? Register</a></button>
+                </form>
+                
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/objectivehtml/FlipClock/master/compiled/flipclock.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Hide preloader after 3 seconds
+            setTimeout(function() {
+                $('#preloader').fadeOut('slow', function() {
+                    $(this).remove();
+                });
+            }, 3000); // 3 seconds
+
+            var clock;
+
+            // Set the date we're counting down to
+            var targetDate = new Date('August 25, 2024 00:00:00').getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = targetDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result in an element with id="demo"
+                clock.setTime(distance / 1000);
+                clock.setCountdown(true);
+
+                // If the count down is over, write some text 
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+
+            clock = $('.clock').FlipClock({
+                clockFace: 'DailyCounter',
+                autoStart: false,
+                callbacks: {
+                    stop: function() {
+                        $('.message').html('The clock has stopped!')
+                    }
+                }
+            });
+
+            clock.start();
+        });
+    </script>
+</body>
+</html>
