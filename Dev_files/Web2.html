@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rondil Perfume UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+        }
+
+        .header .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            color: #000000;
+            margin-left: 20px;
+        }
+
+        .header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .auth-buttons .login-btn {
+            background-color: transparent;
+            color: #2e2e2e;
+            border: 2px solid #333;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 700px;
+            padding: 50px 0;
+            background-color: rgb(255, 255, 255);
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10; /* Ensures the text is above the image */
+            margin-right: 50px;
+        }
+
+        .hero-content h1 {
+            font-size: 7em;
+            width: 60%;
+           line-height: 100px;
+            font-family: 'Dancing Script', cursive;
+            color: #000000;
+            position: relative;
+            margin-bottom: 50px;
+            transform: translateX(5%);
+            
+        }
+
+        .hero-content p {
+           
+            transform: translateX(10%);
+            width: 32%;
+            margin-right: 12px;
+            font-size: 1.4em;
+            color: #5f5f5f;
+        }
+
+        .hero-section .shop-btn {
+            background-color: #F4D03F;
+background-image: linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
+
+            color: white;
+           transform: translateY(70%);
+            padding-top: 25px ;
+            margin-right: 38px;
+            border: none;
+            border-radius: 25px;
+            width:15%;
+            height: 15%;
+            text-align: center;
+            font-size: 1.5em;
+            text-decoration: none;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+           
+        
+        }
+
+        .hero-section .shop-btn:hover {
+            background-image: linear-gradient( 109.6deg,  rgba(24,138,141,1) 11.2%, rgba(96,221,142,1) 91.1% );
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Centering the Image */
+        .hero-image {
+            position: absolute;
+            right: 0;
+            left: 50%;
+            transform: translateX(-52%); /* Centers the image horizontally */
+            width: 580px;
+            height:700px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 5; /* Ensures the image appears behind the text */
+        }
+
+        .hero-image img {
+            height: 100%;
+            width: 100%;
+            border-radius: 70% 70% 0 0; /* Arch effect */
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding: 20px;
+            background: linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+        }
+
+        .stats div {
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.5em;
+        }
+
+        .stats div span {
+            font-size: 2em;
+            color: #333;
+            font-weight: bold;
+            display: block;
+        }
+
+        /* Certification Section */
+        .certification {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification .badge {
+            background-color: #FFD700;
+            padding: 20px;
+            border-radius: 50%;
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .certification p {
+            margin-left: 20px;
+            font-size: 1.2em;
+            font-weight: 700;
+       
+   
+}
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">Rondil</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Company</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="login-btn">Log In</button>
+                <button class="signup-btn" style="background-color: #F4D03F;
+                background-image: linear-gradient(132deg, #F4D03F 0%, #16A085 100%);
+                ">Sign Up</button>
+            </div>
+        </header>
+
+        <!-- Main Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content" style="height: 100%;">
+                <h1>Confident and elegant</h1>
+                <p>Choose a Perfume Based on Your Lifestyle, Whether you're a busy professional, an adventurer who loves to travel!</p>
+               
+            </div>
+            <a href="#" class="shop-btn" style="margin-top:30px;">Shop Now</a>
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/10536608/pexels-photo-10536608.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Perfume Bottles">
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div><span>11 M</span>Online Customers</div>
+            <div><span>1,790</span>Using His Perfume</div>
+            <div><span>+12 K</span>New Users Per Month</div>
+        </section>
+
+        <!-- Certification Section -->
+        <section class="certification">
+            <div class="badge">A</div>
+            <p>Certified for Professionals, Adventurers, and Lovers of Tranquility.</p>
+        </section>
+    </div>
+</body>
+</html>
