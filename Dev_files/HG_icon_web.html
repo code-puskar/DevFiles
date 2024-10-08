@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prac.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://hugeicons.com/assets/logo.svg" alt="Logo" >
+            </div>
+            <div class="right" style="padding-top: 10px;">
+                <ul>
+                    <li>Products <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="15" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></span></li>
+                    <li>Projects<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="15" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></span></li>
+                    <li>Cart<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="15" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></span></li>
+                    <li>Inventory<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="15" color="#000000" fill="none">
+                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></span></li>
+                </ul>
+            </div>
+            <!-- Hamburger Menu for Mobile View -->
+            <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+        </nav>
+    </header>
+
+    <!-- Sidebar Structure -->
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="#">Products</a>
+        <a href="#">Projects</a>
+        <a href="#">Cart</a>
+        <a href="#">Inventory</a>
+    </div>
+
+    <div class="main">
+        <button class="but1">Nice icons improve UX & avoid confusion</button>
+        <h1 class="beaut">Beautiful Icons</h1>
+        <p style="text-align: center;">Expertly crafted top-notch icon library. Made for designers and developer.</p>
+        <div class="buttons">
+            <button><a href="https://hugeicons.com/icons">27000+ Icons</a></button>
+            <button><a href="https://docs.hugeicons.com/">Developer Docs</a></button>
+            <button><a href="https://www.figma.com/community/plugin/1209922740177393208/hugeicons-pro-icon-library">Figma Plugin</a></button>
+            <button><a href="https://www.figma.com/design/GI8zrgL8MqbsWlQEzznX0N/Hugeicons-Pro---Icon-Library?node-id=18027-185">Preview Figma Plugin</a></button>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search Here!" class="search-box">
+        </div>
+    </div>
+
+    <div class="main2" style="margin-top: 10%; width:100%; height:100%;display:flex; flex-direction: column; align-items: center;">
+        <p style="color:rgb(255, 255, 255); font-size: 200%;">Discover a new style of extraordinary experiences. Plus better ways to design.</p>
+        <p style="color:rgb(0, 0, 0); font-size: 50px; font-weight: bolder;">The world’s greatest icon styles</p>
+
+        <div class="scroll-container">
+            <div class="wrapper" id="scrollWrapper">
+                <div class="box">Stroke</div>
+                <div class="box">Solid</div>
+                <div class="box">Twotone</div>
+                <div class="box">Duotone</div>
+                <div class="box">Bulk</div>
+                <div class="box">Stroke</div>
+                <div class="box">Solid</div>
+                <div class="box">Twotone</div>
+                <div class="box">Duotone</div>
+                <div class="box">Bulk</div>
+            </div>
+        
+            <!-- Left and Right Buttons -->
+            <div class="button-container">
+                <button id="scrollLeft" class="scroll-btn">&lt;</button>
+                <button id="scrollRight" class="scroll-btn">&gt;</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        const wrapper = document.getElementById('scrollWrapper');
+const scrollLeftBtn = document.getElementById('scrollLeft');
+const scrollRightBtn = document.getElementById('scrollRight');
+
+// Scroll left by 250px
+scrollLeftBtn.addEventListener('click', () => {
+    wrapper.scrollBy({
+        left: -250, // Adjust the value based on box width
+        behavior: 'smooth'
+    });
+});
+
+// Scroll right by 250px
+scrollRightBtn.addEventListener('click', () => {
+    wrapper.scrollBy({
+        left: 250, // Adjust the value based on box width
+        behavior: 'smooth'
+    });
+});
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open'); // Close sidebar
+            } else {
+                sidebar.classList.add('open'); // Open sidebar
+            }
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").classList.remove('open');
+        }
+    </script>
+</body>
+</html>
